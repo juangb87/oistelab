@@ -1,7 +1,6 @@
 "use client";
 
 const BOOKING_URL = "mailto:hello@hontley.com";
-const EXT = "noopener noreferrer";
 
 const STEPS = [
   {
