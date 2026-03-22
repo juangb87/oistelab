@@ -25,28 +25,28 @@ const STEPS = [
 const PORTFOLIO = [
   {
     name: "Arca Build",
-    domain: "arcabuild.co",
+    logo: "/logo-arca.jpg",
     url: "https://arcabuild.co",
     industry: "Construction",
     desc: "AI assistant for a container construction company — handling project inquiries and client intake.",
   },
   {
     name: "Home Inspections Halley",
-    domain: "homeinspectionshalley.com",
+    logo: "/logo-halley.jpg",
     url: "https://homeinspectionshalley.com",
     industry: "Real Estate Services",
     desc: "AI concierge for a certified Miami home inspector — booking inspections and answering buyer questions 24/7.",
   },
   {
     name: "Bumbei",
-    domain: "bumbei.com",
+    logo: "/logo-bumbei.jpg",
     url: "https://bumbei.com",
     industry: "Fintech",
     desc: "AI assistant for a Bitcoin cashback platform — supporting users and affiliate partners across channels.",
   },
   {
     name: "Galeonica",
-    domain: "galeonica.com",
+    logo: "/logo-galeonica.jpg",
     url: "https://galeonica.com",
     industry: "B2B Fintech",
     desc: "AI concierge for a white-label cashback infrastructure platform — handling partner onboarding and support.",
@@ -184,12 +184,11 @@ export default function Home() {
               style={{ border: "1px solid var(--hontley-border)", background: "var(--background)" }}
             >
               <Image
-                src={`https://www.google.com/s2/favicons?domain=${p.domain}&sz=64`}
+                src={p.logo}
                 alt={p.name}
-                width={36}
-                height={36}
-                className="rounded-lg shrink-0 mt-0.5"
-                unoptimized
+                width={40}
+                height={40}
+                className="rounded-xl shrink-0 mt-0.5 object-cover"
               />
               <div>
                 <div className="flex items-center gap-2">
