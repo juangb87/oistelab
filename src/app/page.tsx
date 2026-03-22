@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const BOOKING_URL = "mailto:hello@hontley.com";
 
 const STEPS = [
@@ -23,30 +25,30 @@ const STEPS = [
 const PORTFOLIO = [
   {
     name: "Arca Build",
+    domain: "arcabuild.co",
     url: "https://arcabuild.co",
     industry: "Construction",
-    emoji: "🏗️",
     desc: "AI assistant for a container construction company — handling project inquiries and client intake.",
   },
   {
     name: "Home Inspections Halley",
+    domain: "homeinspectionshalley.com",
     url: "https://homeinspectionshalley.com",
     industry: "Real Estate Services",
-    emoji: "🏠",
     desc: "AI concierge for a certified Miami home inspector — booking inspections and answering buyer questions 24/7.",
   },
   {
     name: "Bumbei",
+    domain: "bumbei.com",
     url: "https://bumbei.com",
     industry: "Fintech",
-    emoji: "🐝",
     desc: "AI assistant for a Bitcoin cashback platform — supporting users and affiliate partners across channels.",
   },
   {
     name: "Galeonica",
+    domain: "galeonica.com",
     url: "https://galeonica.com",
     industry: "B2B Fintech",
-    emoji: "⚡",
     desc: "AI concierge for a white-label cashback infrastructure platform — handling partner onboarding and support.",
   },
 ];
@@ -181,7 +183,14 @@ export default function Home() {
               className="group rounded-2xl p-5 flex gap-4 items-start transition hover:scale-[1.01]"
               style={{ border: "1px solid var(--hontley-border)", background: "var(--background)" }}
             >
-              <div className="text-3xl">{p.emoji}</div>
+              <Image
+                src={`https://www.google.com/s2/favicons?domain=${p.domain}&sz=64`}
+                alt={p.name}
+                width={36}
+                height={36}
+                className="rounded-lg shrink-0 mt-0.5"
+                unoptimized
+              />
               <div>
                 <div className="flex items-center gap-2">
                   <span className="font-bold text-base group-hover:underline">{p.name}</span>
