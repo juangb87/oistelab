@@ -73,7 +73,7 @@ export default function Home() {
 
       {/* NAV */}
       <nav className="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
-        <span className="text-xl font-bold tracking-tight" style={{ color: "var(--hontley-accent)" }}>
+        <span className="text-2xl font-extrabold tracking-tight" style={{ color: "var(--hontley-black)", letterSpacing: "-0.03em" }}>
           Hontley
         </span>
         <a
