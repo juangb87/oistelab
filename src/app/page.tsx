@@ -20,6 +20,37 @@ const STEPS = [
   },
 ];
 
+const PORTFOLIO = [
+  {
+    name: "Arca Build",
+    url: "https://arcabuild.co",
+    industry: "Construction",
+    emoji: "🏗️",
+    desc: "AI assistant for a container construction company — handling project inquiries and client intake.",
+  },
+  {
+    name: "Home Inspections Halley",
+    url: "https://homeinspectionshalley.com",
+    industry: "Real Estate Services",
+    emoji: "🏠",
+    desc: "AI concierge for a certified Miami home inspector — booking inspections and answering buyer questions 24/7.",
+  },
+  {
+    name: "Bumbei",
+    url: "https://bumbei.com",
+    industry: "Fintech",
+    emoji: "🐝",
+    desc: "AI assistant for a Bitcoin cashback platform — supporting users and affiliate partners across channels.",
+  },
+  {
+    name: "Galeonica",
+    url: "https://galeonica.com",
+    industry: "B2B Fintech",
+    emoji: "⚡",
+    desc: "AI concierge for a white-label cashback infrastructure platform — handling partner onboarding and support.",
+  },
+];
+
 const USE_CASES = [
   { emoji: "🦪", label: "Food & Wholesale", desc: "Orders, availability, delivery scheduling" },
   { emoji: "🏡", label: "Real Estate", desc: "Lead qualification & showing bookings" },
@@ -131,6 +162,37 @@ export default function Home() {
           <p className="mt-2 text-sm font-medium" style={{ color: "var(--hontley-muted)" }}>
             — Ross, Everglades Oysters (first Hontley client)
           </p>
+        </div>
+      </section>
+
+      {/* PORTFOLIO */}
+      <section className="max-w-5xl mx-auto px-6 py-16">
+        <h2 className="text-3xl font-bold text-center mb-4">Businesses we&apos;ve built for</h2>
+        <p className="text-center mb-10" style={{ color: "var(--hontley-muted)" }}>
+          Real assistants. Real businesses. Already running.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {PORTFOLIO.map((p) => (
+            <a
+              key={p.name}
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-2xl p-5 flex gap-4 items-start transition hover:scale-[1.01]"
+              style={{ border: "1px solid var(--hontley-border)", background: "var(--background)" }}
+            >
+              <div className="text-3xl">{p.emoji}</div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="font-bold text-base group-hover:underline">{p.name}</span>
+                  <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: "var(--hontley-gray)", color: "var(--hontley-muted)" }}>
+                    {p.industry}
+                  </span>
+                </div>
+                <p className="mt-1 text-sm leading-relaxed" style={{ color: "var(--hontley-muted)" }}>{p.desc}</p>
+              </div>
+            </a>
+          ))}
         </div>
       </section>
 
