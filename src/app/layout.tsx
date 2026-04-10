@@ -9,13 +9,13 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Hontley — AI Concierge Setup for Small Businesses",
+  title: "Hontley Colombia | Bots con OpenClaw para negocios",
   description:
-    "We build custom AI assistants for small businesses — on WhatsApp, Telegram, or SMS. Ready in days, not months.",
+    "Implementamos bots y asistentes con OpenClaw para negocios en Colombia, conectados a WhatsApp, Telegram y más. Listos en días, no en meses.",
   openGraph: {
-    title: "Hontley — AI Concierge Setup for Small Businesses",
+    title: "Hontley Colombia | Bots con OpenClaw para negocios",
     description:
-      "We build custom AI assistants for small businesses — on WhatsApp, Telegram, or SMS. Ready in days, not months.",
+      "Implementamos bots y asistentes con OpenClaw para negocios en Colombia, conectados a WhatsApp, Telegram y más. Listos en días, no en meses.",
     url: "https://hontley.com",
     siteName: "Hontley",
     type: "website",
@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={jakarta.variable}>
+    <html lang="es" className={jakarta.variable}>
       <body style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>{children}</body>
     </html>
   );
