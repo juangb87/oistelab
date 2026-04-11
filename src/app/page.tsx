@@ -185,15 +185,15 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 items-center">
           <div>
             <div className="text-sm mb-5" style={{ color: "var(--hontley-muted)" }}>01</div>
-            <h1 className="text-6xl sm:text-7xl lg:text-[86px] tracking-tight leading-[0.95] mb-5 font-bold">
-              Chats que responden,
+            <h1 className="text-6xl sm:text-7xl lg:text-[86px] tracking-tight leading-[0.95] mb-5 font-black">
+              Tu oficina virtual 3D
               <br />
-              organizan y dan
+              donde ves a tus agentes
               <br />
-              seguimiento.
+              trabajar en vivo por ti.
             </h1>
-            <p className="text-lg sm:text-xl max-w-2xl mb-8" style={{ color: "var(--hontley-muted)" }}>
-              Agentes coordinados para atender clientes, mover tareas y hacer follow-up sin que el negocio se frene.
+            <p className="text-lg sm:text-xl max-w-2xl mb-8 font-semibold" style={{ color: "var(--hontley-muted)" }}>
+              Visualiza cómo responden, organizan y dan seguimiento en tiempo real mientras tu negocio sigue avanzando.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <a href="#demo" className="px-6 py-3.5 rounded-full text-sm font-semibold" style={{ background: "#111", color: "#fff" }}>
@@ -219,8 +219,8 @@ export default function Home() {
           <div className="rounded-[28px] border p-5 sm:p-6 overflow-hidden hero-office" style={{ borderColor: "#d8d0c4", background: "linear-gradient(180deg, #f8f4ec 0%, #efe7d9 100%)", boxShadow: "0 20px 60px rgba(0,0,0,0.08)" }}>
             <div className="flex items-center justify-between mb-5">
               <div>
-                <div className="text-xs uppercase tracking-[0.22em]" style={{ color: "#7e7468" }}>AI Office</div>
-                <div className="text-lg font-semibold">Agentes ejecutando tareas</div>
+                <div className="text-xs uppercase tracking-[0.22em] font-black" style={{ color: "#7e7468" }}>Oficina virtual 3D</div>
+                <div className="text-lg font-black">Mira cómo tus agentes trabajan en vivo</div>
               </div>
               <div className="text-xs px-3 py-1 rounded-full border" style={{ borderColor: "#d8d0c4", background: "rgba(255,255,255,0.7)", color: "#5a5247" }}>
                 En vivo
@@ -328,7 +328,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 py-14 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
           <div>
             <div className="text-sm mb-5" style={{ color: "#aaa" }}>05</div>
-            <h2 className="text-4xl sm:text-5xl tracking-tight mb-4">Demo en formato chat</h2>
+            <h2 className="text-4xl sm:text-5xl tracking-tight mb-4 font-black">Demo en formato chat</h2>
             <p className="text-lg mb-8" style={{ color: "#bdbdbd" }}>
               Pruébalo como si fueras un cliente real. Elige un tipo de negocio y haz preguntas libres.
             </p>
@@ -372,7 +372,7 @@ export default function Home() {
             <div className="rounded-md border p-5 sm:p-6 font-mono" style={{ background: "#000", borderColor: "#fff", boxShadow: "0 0 0 1px #fff inset" }}>
               <div className="flex items-center justify-between gap-4 flex-wrap mb-5">
                 <div>
-                  <h3 className="text-xl font-medium">{demoBusiness.trim() || demoConfig.label} Assistant</h3>
+                  <h3 className="text-xl font-black">{demoBusiness.trim() || demoConfig.label} Assistant</h3>
                   <p className="text-sm" style={{ color: "#aaa" }}>_ Haz clic o escribe una pregunta</p>
                 </div>
                 <div className="text-xs" style={{ color: "#aaa" }}>● Demo en vivo</div>
@@ -448,7 +448,7 @@ export default function Home() {
           <div className="flex items-center justify-between gap-4 flex-wrap mb-8">
             <div>
               <div className="text-sm mb-3" style={{ color: "var(--hontley-muted)" }}>06</div>
-              <h2 className="text-4xl tracking-tight">Casos reales</h2>
+              <h2 className="text-4xl tracking-tight font-black">Casos reales</h2>
             </div>
             <a href={BOOKING_URL} className="text-sm font-medium hover:underline">Ver si aplica a mi negocio</a>
           </div>
@@ -473,7 +473,7 @@ export default function Home() {
           <div className="flex items-end justify-between gap-4 flex-wrap mb-8">
             <div>
               <div className="text-sm mb-3" style={{ color: "var(--hontley-muted)" }}>07</div>
-              <h2 className="text-4xl tracking-tight">Precios</h2>
+              <h2 className="text-4xl tracking-tight font-black">Precios</h2>
               <p className="mt-3" style={{ color: "var(--hontley-muted)" }}>Implementación en COP. Infra y consumo aparte.</p>
             </div>
           </div>
@@ -498,7 +498,7 @@ export default function Home() {
 
       <section className="border-t" style={{ borderColor: "var(--hontley-border)" }}>
         <div className="max-w-6xl mx-auto px-6 py-16 text-center">
-          <h2 className="text-4xl sm:text-5xl tracking-tight mb-4">¿Quieres uno así para tu negocio?</h2>
+          <h2 className="text-4xl sm:text-5xl tracking-tight mb-4 font-black">¿Quieres uno así para tu negocio?</h2>
           <p className="text-lg max-w-2xl mx-auto mb-8" style={{ color: "var(--hontley-muted)" }}>
             Escríbele a Pacho y te mostramos qué se puede automatizar y cuánto costaría montarlo.
           </p>
