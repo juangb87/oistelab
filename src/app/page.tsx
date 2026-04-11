@@ -122,6 +122,7 @@ export default function Home() {
   const [demoBusiness, setDemoBusiness] = useState("");
   const [demoInput, setDemoInput] = useState("");
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
+  const [activeAgent, setActiveAgent] = useState<number | null>(null);
 
   useEffect(() => {
     document.documentElement.classList.add("dark");
@@ -218,8 +219,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative rounded-[24px] border p-4 sm:p-5 min-h-[520px] sm:min-h-[420px] hero-office-scene" style={{ borderColor: "#3b342d", background: "linear-gradient(180deg, #c7e4ff 0%, #d8c3a5 38%, #9f7b55 38%, #7a5b3d 100%)" }}>
-              <div className="absolute top-4 left-4 right-4 flex items-center justify-between text-[11px] sm:text-xs" style={{ color: "#746a5e" }}>
+            <div className="relative rounded-[24px] border p-4 sm:p-5 min-h-[560px] sm:min-h-[420px] hero-office-scene" style={{ borderColor: "#3b342d", background: "linear-gradient(180deg, #c7e4ff 0%, #d8c3a5 38%, #9f7b55 38%, #7a5b3d 100%)" }}>
+              <div className="absolute top-4 left-4 right-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[11px] sm:text-xs" style={{ color: "#5c4b3b" }}>
                 <span>Subagentes coordinados</span>
                 <span>Lead → Agenda → Seguimiento</span>
               </div>
@@ -251,15 +252,31 @@ export default function Home() {
               ))}
 
               {[
-                { className: "left-[30%] top-[26%]", delay: "0s" },
-                { className: "left-[52%] top-[42%]", delay: "1.2s" },
-                { className: "left-[62%] top-[70%]", delay: "2.2s" },
+                { className: "left-[30%] top-[26%]", label: "Agent Lead", msg: "Calificando lead de WhatsApp" },
+                { className: "left-[52%] top-[42%]", label: "Agent Agenda", msg: "Buscando horario disponible" },
+                { className: "left-[62%] top-[70%]", label: "Agent Follow-up", msg: "Preparando mensaje de seguimiento" },
               ].map((agent, index) => (
-                <div key={index} className={`absolute ${agent.className} flex flex-col items-center hero-agent hero-agent-${index + 1}`}>
+                <button
+                  key={index}
+                  type="button"
+                  onMouseEnter={() => setActiveAgent(index)}
+                  onMouseLeave={() => setActiveAgent((current) => (current === index ? null : current))}
+                  onClick={() => setActiveAgent((current) => (current === index ? null : index))}
+                  className={`absolute ${agent.className} flex flex-col items-center hero-agent hero-agent-${index + 1} cursor-pointer`}
+                  aria-label={agent.label}
+                >
                   <div className="w-6 h-6 border-2" style={{ borderColor: "#111", background: "#f8d9b6" }} />
                   <div className="w-8 h-8 border-x-2 border-b-2" style={{ borderColor: "#111", background: index === 0 ? "#7c3aed" : index === 1 ? "#2563eb" : "#f97316" }} />
                   <div className="w-3 h-5 border-x-2" style={{ borderColor: "#111", background: "#111" }} />
-                </div>
+                  <span className="mt-2 text-[10px] sm:text-[11px] font-semibold px-2 py-1 border hero-agent-label" style={{ borderColor: "#3b342d", background: "rgba(255,255,255,0.75)", color: "#2c241d" }}>
+                    {agent.label}
+                  </span>
+                  {activeAgent === index ? (
+                    <span className="absolute left-1/2 top-full mt-3 -translate-x-1/2 w-[140px] sm:w-[170px] border-2 px-3 py-2 text-[10px] sm:text-xs text-left hero-agent-tooltip" style={{ borderColor: "#35271b", background: "rgba(34,20,10,0.96)", color: "#fff", boxShadow: "6px 6px 0 rgba(0,0,0,0.22)" }}>
+                      {agent.msg}
+                    </span>
+                  ) : null}
+                </button>
               ))}
 
               <div className="absolute left-[8%] bottom-5 right-[8%] grid grid-cols-1 sm:grid-cols-3 gap-3 hero-task-grid">
@@ -496,7 +513,7 @@ export default function Home() {
             padding: 1rem;
           }
           .hero-office-scene {
-            min-height: 520px;
+            min-height: 560px;
           }
           .hero-station-leads {
             left: 6% !important;
@@ -531,6 +548,14 @@ export default function Home() {
             left: 48% !important;
             top: 72% !important;
           }
+          .hero-agent-label {
+            font-size: 9px;
+            padding: 0.2rem 0.45rem;
+          }
+          .hero-agent-tooltip {
+            width: 130px;
+            margin-top: 0.45rem;
+          }
         }
         .hero-office-scene::after {
           content: "";
@@ -541,6 +566,13 @@ export default function Home() {
         }
         .hero-agent {
           animation: officeAgentFloat 6s ease-in-out infinite;
+          background: transparent;
+        }
+        .hero-agent-label {
+          white-space: nowrap;
+        }
+        .hero-agent-tooltip {
+          z-index: 20;
         }
         .hero-agent-1 {
           animation-delay: 0s;
