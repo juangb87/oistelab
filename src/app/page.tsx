@@ -242,12 +242,12 @@ export default function Home() {
         />
       </section>
 
-      <section id="demo" className="border-t" style={{ borderColor: "var(--hontley-border)" }}>
+      <section id="demo" className="border-t" style={{ borderColor: "#222", background: "#000", color: "#fff" }}>
         <div className="max-w-6xl mx-auto px-6 py-14 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
           <div>
-            <div className="text-sm mb-5" style={{ color: "var(--hontley-muted)" }}>05</div>
+            <div className="text-sm mb-5" style={{ color: "#aaa" }}>05</div>
             <h2 className="text-4xl sm:text-5xl tracking-tight mb-4">Demo en formato chat</h2>
-            <p className="text-lg mb-8" style={{ color: "var(--hontley-muted)" }}>
+            <p className="text-lg mb-8" style={{ color: "#bdbdbd" }}>
               Pruébalo como si fueras un cliente real. Elige un tipo de negocio y haz preguntas libres.
             </p>
 
@@ -256,44 +256,44 @@ export default function Home() {
                 <button
                   key={key}
                   onClick={() => setDemoType(key)}
-                  className="w-full rounded-2xl px-4 py-4 text-left border transition"
-                  style={{ background: demoType === key ? "#111" : "rgba(255,255,255,0.55)", color: demoType === key ? "#fff" : "#111", borderColor: "var(--hontley-border)" }}
+                  className="w-full rounded-md px-4 py-4 text-left border transition font-mono"
+                  style={{ background: demoType === key ? "#fff" : "#000", color: demoType === key ? "#000" : "#fff", borderColor: demoType === key ? "#fff" : "#444" }}
                 >
-                  {demo.label}
+                  {`> ${demo.label}`}
                 </button>
               ))}
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-3 font-mono">
               <input
                 value={demoName}
                 onChange={(e) => setDemoName(e.target.value)}
-                placeholder="Tu nombre"
-                className="w-full rounded-2xl px-4 py-4 outline-none border"
-                style={{ background: "rgba(255,255,255,0.55)", borderColor: "var(--hontley-border)" }}
+                placeholder="> Tu nombre_"
+                className="w-full rounded-md px-4 py-4 outline-none border"
+                style={{ background: "#000", color: "#fff", borderColor: "#444" }}
               />
               <input
                 value={demoBusiness}
                 onChange={(e) => setDemoBusiness(e.target.value)}
-                placeholder={demoConfig.placeholder}
-                className="w-full rounded-2xl px-4 py-4 outline-none border"
-                style={{ background: "rgba(255,255,255,0.55)", borderColor: "var(--hontley-border)" }}
+                placeholder={`> ${demoConfig.placeholder}_`}
+                className="w-full rounded-md px-4 py-4 outline-none border"
+                style={{ background: "#000", color: "#fff", borderColor: "#444" }}
               />
-              <div className="rounded-2xl px-4 py-4 border flex items-center gap-3" style={{ background: "rgba(255,255,255,0.55)", borderColor: "var(--hontley-border)" }}>
+              <div className="rounded-md px-4 py-4 border flex items-center gap-3 font-mono" style={{ background: "#000", color: "#fff", borderColor: "#444" }}>
                 <FiSend size={16} />
-                <span>{demoConfig.badge}</span>
+                <span>{`> ${demoConfig.badge}`}</span>
               </div>
             </div>
           </div>
 
           <div>
-            <div className="rounded-[28px] border p-5 sm:p-6" style={{ background: "var(--hontley-panel-strong)", borderColor: "var(--hontley-border)" }}>
+            <div className="rounded-md border p-5 sm:p-6 font-mono" style={{ background: "#000", borderColor: "#fff", boxShadow: "0 0 0 1px #fff inset" }}>
               <div className="flex items-center justify-between gap-4 flex-wrap mb-5">
                 <div>
                   <h3 className="text-xl font-medium">{demoBusiness.trim() || demoConfig.label} Assistant</h3>
-                  <p className="text-sm" style={{ color: "var(--hontley-muted)" }}>Haz clic o escribe una pregunta</p>
+                  <p className="text-sm" style={{ color: "#aaa" }}>_ Haz clic o escribe una pregunta</p>
                 </div>
-                <div className="text-xs" style={{ color: "var(--hontley-muted)" }}>Demo en vivo</div>
+                <div className="text-xs" style={{ color: "#aaa" }}>● Demo en vivo</div>
               </div>
 
               <div className="grid grid-cols-1 gap-2 mb-4">
@@ -302,10 +302,10 @@ export default function Home() {
                     key={question}
                     type="button"
                     onClick={() => submitQuestion(question)}
-                    className="w-full text-left rounded-2xl px-4 py-3 transition text-sm border"
-                    style={{ background: "#fff", color: "#111", borderColor: "var(--hontley-border)" }}
+                    className="w-full text-left rounded-md px-4 py-3 transition text-sm border"
+                    style={{ background: "#111", color: "#fff", borderColor: "#444" }}
                   >
-                    {question}
+                    {`> ${question}`}
                   </button>
                 ))}
               </div>
@@ -320,11 +320,11 @@ export default function Home() {
                       submitQuestion(demoInput);
                     }
                   }}
-                  placeholder="Escribe una pregunta como lo haría un cliente"
-                  className="flex-1 rounded-2xl px-4 py-3 outline-none border"
-                  style={{ background: "#fff", borderColor: "var(--hontley-border)" }}
+                  placeholder="> Escribe una pregunta como lo haría un cliente_"
+                  className="flex-1 rounded-md px-4 py-3 outline-none border font-mono"
+                  style={{ background: "#000", color: "#fff", borderColor: "#fff" }}
                 />
-                <button type="button" onClick={() => submitQuestion(demoInput)} className="px-4 py-3 rounded-2xl font-semibold" style={{ background: "#111", color: "#fff" }}>
+                <button type="button" onClick={() => submitQuestion(demoInput)} className="px-4 py-3 rounded-md font-semibold" style={{ background: "#fff", color: "#000" }}>
                   Enviar
                 </button>
               </div>
@@ -334,20 +334,20 @@ export default function Home() {
                   chatMessages.map((message, index) => (
                     <div key={`${message.role}-${index}`} className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}>
                       <div
-                        className="max-w-[90%] rounded-2xl px-4 py-3 text-sm leading-relaxed border"
+                        className="max-w-[90%] rounded-md px-4 py-3 text-sm leading-relaxed border"
                         style={
                           message.role === "user"
-                            ? { background: "#111", color: "#fff", borderColor: "#111" }
-                            : { background: "#fff", color: "#111", borderColor: "var(--hontley-border)" }
+                            ? { background: "#fff", color: "#000", borderColor: "#fff" }
+                            : { background: "#111", color: "#fff", borderColor: "#444" }
                         }
                       >
-                        {message.text}
+                        {message.role === "assistant" ? `> ${message.text}` : message.text}
                       </div>
                     </div>
                   ))
                 ) : (
-                  <div className="h-full rounded-2xl p-5 text-sm flex items-center justify-center text-center border" style={{ background: "#fff", color: "var(--hontley-muted)", borderColor: "var(--hontley-border)" }}>
-                    Prueba una pregunta y mira cómo respondería el sistema.
+                  <div className="h-full rounded-md p-5 text-sm flex items-center justify-center text-center border" style={{ background: "#050505", color: "#aaa", borderColor: "#444" }}>
+                    {"> Prueba una pregunta y mira cómo respondería el sistema."}
                   </div>
                 )}
               </div>
