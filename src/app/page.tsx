@@ -207,7 +207,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="rounded-[28px] border p-5 sm:p-6 overflow-hidden" style={{ borderColor: "#d8d0c4", background: "linear-gradient(180deg, #f8f4ec 0%, #efe7d9 100%)", boxShadow: "0 20px 60px rgba(0,0,0,0.08)" }}>
+          <div className="rounded-[28px] border p-5 sm:p-6 overflow-hidden hero-office" style={{ borderColor: "#d8d0c4", background: "linear-gradient(180deg, #f8f4ec 0%, #efe7d9 100%)", boxShadow: "0 20px 60px rgba(0,0,0,0.08)" }}>
             <div className="flex items-center justify-between mb-5">
               <div>
                 <div className="text-xs uppercase tracking-[0.22em]" style={{ color: "#7e7468" }}>AI Office</div>
@@ -218,7 +218,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative rounded-[24px] border p-4 sm:p-5 min-h-[360px]" style={{ borderColor: "#ddd2c3", background: "radial-gradient(circle at top, rgba(255,255,255,0.95), rgba(241,233,220,0.95))" }}>
+            <div className="relative rounded-[24px] border p-4 sm:p-5 min-h-[360px] hero-office-scene" style={{ borderColor: "#ddd2c3", background: "radial-gradient(circle at top, rgba(255,255,255,0.95), rgba(241,233,220,0.95))" }}>
               <div className="absolute top-4 left-4 right-4 flex items-center justify-between text-[11px] sm:text-xs" style={{ color: "#746a5e" }}>
                 <span>Subagentes coordinados</span>
                 <span>Lead → Agenda → Seguimiento</span>
@@ -237,10 +237,10 @@ export default function Home() {
               ].map((station) => (
                 <div
                   key={station.title}
-                  className={`absolute ${station.className} w-[110px] sm:w-[128px] rounded-2xl border p-3 sm:p-4`}
-                  style={{ borderColor: "#d8d0c4", background: "rgba(255,255,255,0.78)", boxShadow: `0 0 0 1px ${station.accent}22, 0 16px 30px rgba(0,0,0,0.05)` }}
+                  className={`absolute ${station.className} w-[110px] sm:w-[128px] rounded-2xl border p-3 sm:p-4 hero-station`}
+                  style={{ borderColor: "#d8d0c4", background: "rgba(255,255,255,0.78)", boxShadow: `0 0 0 1px ${station.accent}22, 0 16px 30px rgba(0,0,0,0.05)`, animationDelay: station.title === "Leads" ? "0s" : station.title === "Agenda" ? "1.2s" : "2.4s" }}
                 >
-                  <div className="w-3 h-3 rounded-full mb-3" style={{ background: station.accent, boxShadow: `0 0 18px ${station.accent}66` }} />
+                  <div className="w-3 h-3 rounded-full mb-3 hero-station-dot" style={{ background: station.accent, boxShadow: `0 0 18px ${station.accent}66`, animationDelay: station.title === "Leads" ? "0s" : station.title === "Agenda" ? "1.2s" : "2.4s" }} />
                   <div className="text-sm font-semibold">{station.title}</div>
                   <div className="text-[11px] sm:text-xs mt-1" style={{ color: "#746a5e" }}>{station.note}</div>
                 </div>
@@ -251,7 +251,7 @@ export default function Home() {
                 { className: "left-[52%] top-[42%]", delay: "1.2s" },
                 { className: "left-[62%] top-[70%]", delay: "2.2s" },
               ].map((agent, index) => (
-                <div key={index} className={`absolute ${agent.className} flex flex-col items-center`}>
+                <div key={index} className={`absolute ${agent.className} flex flex-col items-center hero-agent hero-agent-${index + 1}`}>
                   <div className="w-5 h-5 rounded-full border-2" style={{ borderColor: "#111", background: "#fff" }} />
                   <div className="w-px h-6" style={{ background: "#111" }} />
                   <div className="w-6 h-3 rounded-full" style={{ background: "#111" }} />
@@ -264,7 +264,7 @@ export default function Home() {
                   "Reserva confirmada",
                   "Follow-up enviado",
                 ].map((task) => (
-                  <div key={task} className="rounded-2xl border px-3 py-3 text-xs sm:text-sm" style={{ borderColor: "#d8d0c4", background: "rgba(17,17,17,0.92)", color: "#fff" }}>
+                  <div key={task} className="rounded-2xl border px-3 py-3 text-xs sm:text-sm hero-task-card" style={{ borderColor: "#d8d0c4", background: "rgba(17,17,17,0.92)", color: "#fff", animationDelay: task === "Lead calificado" ? "0s" : task === "Reserva confirmada" ? "1.4s" : "2.8s" }}>
                     {task}
                   </div>
                 ))}
@@ -478,6 +478,57 @@ export default function Home() {
           </a>
         </div>
       </section>
+
+      <style jsx>{`
+        .hero-office-scene::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, rgba(255,255,255,0.14), transparent 35%, transparent 65%, rgba(255,255,255,0.08));
+          pointer-events: none;
+        }
+        .hero-agent {
+          animation: officeAgentFloat 6s ease-in-out infinite;
+        }
+        .hero-agent-1 {
+          animation-delay: 0s;
+        }
+        .hero-agent-2 {
+          animation-delay: 1.3s;
+        }
+        .hero-agent-3 {
+          animation-delay: 2.6s;
+        }
+        .hero-station {
+          animation: stationPulse 4.8s ease-in-out infinite;
+        }
+        .hero-station-dot {
+          animation: stationGlow 2.4s ease-in-out infinite;
+        }
+        .hero-task-card {
+          animation: taskBlink 4.2s ease-in-out infinite;
+        }
+        @keyframes officeAgentFloat {
+          0%, 100% { transform: translate3d(0, 0, 0); }
+          25% { transform: translate3d(10px, -6px, 0); }
+          50% { transform: translate3d(18px, 4px, 0); }
+          75% { transform: translate3d(6px, 10px, 0); }
+        }
+        @keyframes stationPulse {
+          0%, 100% { transform: scale(1); box-shadow: 0 0 0 1px rgba(0,0,0,0.04), 0 16px 30px rgba(0,0,0,0.05); }
+          50% { transform: scale(1.025); box-shadow: 0 0 0 1px rgba(0,0,0,0.06), 0 20px 36px rgba(0,0,0,0.08); }
+        }
+        @keyframes stationGlow {
+          0%, 100% { opacity: 0.8; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.35); }
+        }
+        @keyframes taskBlink {
+          0%, 100% { transform: translateY(0); opacity: 0.72; }
+          20% { opacity: 1; }
+          50% { transform: translateY(-4px); opacity: 1; }
+          80% { opacity: 0.8; }
+        }
+      `}</style>
 
       <footer className="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between text-sm flex-wrap gap-4" style={{ color: "var(--hontley-muted)" }}>
         <span className="font-medium" style={{ color: "var(--hontley-black)" }}>Hontley</span>
