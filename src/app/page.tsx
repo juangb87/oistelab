@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
-import { FiDollarSign, FiGrid, FiMessageSquare, FiSend, FiSettings, FiShoppingBag, FiUserCheck } from "react-icons/fi";
+import { FiActivity, FiBarChart2, FiCpu, FiDollarSign, FiGrid, FiHeadphones, FiLayers, FiMessageSquare, FiMic, FiSend, FiSettings, FiShoppingBag, FiTool, FiUserCheck } from "react-icons/fi";
 
 const BOOKING_URL = "https://wa.me/573106460010?text=Hola%20Pacho%2C%20quiero%20informaci%C3%B3n%20sobre%20automatizaci%C3%B3n%20de%20procesos%20y%20canales%20para%20mi%20negocio";
 const CONTACT_LABEL = "WhatsApp: +57 310 6460010";
@@ -15,9 +15,24 @@ const PORTFOLIO = [
 ];
 
 const BENEFITS = [
-  { title: "Responde al instante", desc: "Atiende preguntas, solicitudes y mensajes sin dejar todo en visto.", icon: FiMessageSquare },
-  { title: "Filtra y organiza", desc: "Clasifica leads, pedidos o citas y mueve cada caso al siguiente paso.", icon: FiUserCheck },
-  { title: "Le quita carga al equipo", desc: "Menos tareas repetitivas, más foco en cerrar y operar mejor.", icon: FiSettings },
+  { title: "Menos trabajo manual", desc: "Automatiza tareas repetitivas para que el equipo deje de apagar incendios y gane tiempo operativo.", icon: FiActivity },
+  { title: "Más flujo entre tareas", desc: "Recibe, clasifica, enruta y ejecuta el siguiente paso sin perder contexto entre áreas o personas.", icon: FiLayers },
+  { title: "Más control y seguimiento", desc: "Convierte conversaciones, audios y solicitudes en procesos visibles, medibles y accionables.", icon: FiBarChart2 },
+];
+
+const AREAS = [
+  { title: "Comercial y soporte", desc: "Leads, agenda, seguimiento, soporte y atención omnicanal.", icon: FiMessageSquare },
+  { title: "Operaciones", desc: "Tareas repetitivas, handoffs, validaciones y coordinación interna.", icon: FiSettings },
+  { title: "Desarrollo e ingeniería", desc: "Triage, documentación, QA, requerimientos y seguimiento técnico.", icon: FiCpu },
+  { title: "Arquitectura y construcción", desc: "Solicitudes, levantamientos, cambios, aprobaciones y control documental.", icon: FiTool },
+  { title: "Equipos creativos", desc: "Briefs, revisiones, feedback, recordatorios y flujo de entregables.", icon: FiGrid },
+  { title: "Texto y voz", desc: "Procesa chats y audios para convertir intención en acciones útiles para el negocio.", icon: FiMic },
+];
+
+const IMPACT_METRICS = [
+  { value: "-60%", label: "menos trabajo manual" },
+  { value: "24/7", label: "respuesta y seguimiento" },
+  { value: "+flujo", label: "entre áreas y tareas" },
 ];
 
 const PLANS = [
@@ -193,7 +208,7 @@ export default function Home() {
               trabajar en vivo por ti.
             </h1>
             <p className="text-lg sm:text-xl max-w-2xl mb-8 font-semibold" style={{ color: "var(--hontley-muted)" }}>
-              Visualiza cómo responden, organizan y dan seguimiento en tiempo real mientras tu negocio sigue avanzando.
+              Automatiza procesos, coordina tareas y ayuda a que ventas, soporte, operaciones y equipos técnicos trabajen con más velocidad, menos fricción y mejor seguimiento.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <a href="#demo" className="px-6 py-3.5 rounded-full text-sm font-semibold" style={{ background: "#111", color: "#fff" }}>
@@ -203,15 +218,23 @@ export default function Home() {
                 Ver si aplica a mi negocio
               </a>
             </div>
-            <div className="flex flex-wrap gap-3 text-sm">
+            <div className="flex flex-wrap gap-3 text-sm mb-8">
               {[
-                "Responde",
-                "Organiza",
+                "Automatiza procesos",
+                "Coordina equipos",
                 "Da seguimiento",
               ].map((item) => (
-                <span key={item} className="px-4 py-2 rounded-full border" style={{ borderColor: "var(--hontley-border)", background: "rgba(255,255,255,0.65)" }}>
+                <span key={item} className="px-4 py-2 rounded-full border font-semibold" style={{ borderColor: "var(--hontley-border)", background: "rgba(255,255,255,0.65)" }}>
                   {item}
                 </span>
+              ))}
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {IMPACT_METRICS.map((metric) => (
+                <div key={metric.label} className="rounded-2xl border px-4 py-4" style={{ borderColor: "var(--hontley-border)", background: "rgba(255,255,255,0.62)" }}>
+                  <div className="text-2xl sm:text-3xl font-black">{metric.value}</div>
+                  <div className="text-sm mt-1" style={{ color: "var(--hontley-muted)" }}>{metric.label}</div>
+                </div>
               ))}
             </div>
           </div>
@@ -322,6 +345,82 @@ export default function Home() {
           description="Le quita trabajo repetitivo al equipo y deja más tiempo para vender, atender y cerrar mejor."
           right={<FiSettings size={64} />}
         />
+      </section>
+
+      <section className="border-t" style={{ borderColor: "var(--hontley-border)" }}>
+        <div className="max-w-6xl mx-auto px-6 py-14">
+          <div className="flex items-end justify-between gap-4 flex-wrap mb-8">
+            <div>
+              <div className="text-sm mb-3" style={{ color: "var(--hontley-muted)" }}>05</div>
+              <h2 className="text-4xl sm:text-5xl tracking-tight font-black">Áreas donde sí genera valor</h2>
+              <p className="mt-3 max-w-3xl" style={{ color: "var(--hontley-muted)" }}>
+                No es solo para ventas. Un agente bien diseñado puede tomar tareas que frenan el día a día y devolverle tiempo valioso a toda la organización.
+              </p>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+            {AREAS.map((area) => {
+              const Icon = area.icon;
+              return (
+                <div key={area.title} className="rounded-2xl p-5 border" style={{ background: "rgba(255,255,255,0.55)", borderColor: "var(--hontley-border)" }}>
+                  <div className="w-11 h-11 rounded-2xl flex items-center justify-center border mb-4" style={{ borderColor: "var(--hontley-border)" }}>
+                    <Icon size={18} />
+                  </div>
+                  <div className="text-xl font-black mb-2">{area.title}</div>
+                  <p style={{ color: "var(--hontley-muted)" }}>{area.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t" style={{ borderColor: "var(--hontley-border)" }}>
+        <div className="max-w-6xl mx-auto px-6 py-14 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
+          <div>
+            <div className="text-sm mb-3" style={{ color: "var(--hontley-muted)" }}>06</div>
+            <h2 className="text-4xl sm:text-5xl tracking-tight font-black mb-4">Cómo trabaja el sistema</h2>
+            <p className="text-lg mb-6" style={{ color: "var(--hontley-muted)" }}>
+              Recibe solicitudes, entiende contexto, coordina tareas, ejecuta el siguiente paso y deja trazabilidad para que el equipo no trabaje a ciegas.
+            </p>
+            <div className="space-y-4">
+              {[
+                { title: "Recibe y entiende", desc: "Chats, formularios, audios o requerimientos internos.", icon: FiHeadphones },
+                { title: "Clasifica y prioriza", desc: "Ordena tareas, asigna contexto y decide el flujo correcto.", icon: FiUserCheck },
+                { title: "Ejecuta y reporta", desc: "Agenda, responde, documenta, hace follow-up y deja visibilidad.", icon: FiBarChart2 },
+              ].map((step) => {
+                const Icon = step.icon;
+                return (
+                  <div key={step.title} className="flex gap-4 rounded-2xl border p-4" style={{ borderColor: "var(--hontley-border)", background: "rgba(255,255,255,0.55)" }}>
+                    <div className="w-11 h-11 rounded-2xl border flex items-center justify-center shrink-0" style={{ borderColor: "var(--hontley-border)" }}>
+                      <Icon size={18} />
+                    </div>
+                    <div>
+                      <div className="font-black mb-1">{step.title}</div>
+                      <div style={{ color: "var(--hontley-muted)" }}>{step.desc}</div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="rounded-[28px] border p-5 sm:p-6" style={{ background: "rgba(255,255,255,0.55)", borderColor: "var(--hontley-border)" }}>
+            <div className="text-sm mb-3" style={{ color: "var(--hontley-muted)" }}>Impacto esperado</div>
+            <h3 className="text-3xl tracking-tight font-black mb-6">Menos fricción. Más flujo. Mejor ROI.</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-5">
+              {IMPACT_METRICS.map((metric) => (
+                <div key={metric.label} className="rounded-2xl border px-4 py-4" style={{ borderColor: "var(--hontley-border)", background: "#fff" }}>
+                  <div className="text-2xl font-black">{metric.value}</div>
+                  <div className="text-sm mt-1" style={{ color: "var(--hontley-muted)" }}>{metric.label}</div>
+                </div>
+              ))}
+            </div>
+            <p style={{ color: "var(--hontley-muted)" }}>
+              La apuesta no es meter AI por moda. Es invertir en una operación que responda mejor, reduzca carga manual y ayude a escalar sin crecer el caos.
+            </p>
+          </div>
+        </div>
       </section>
 
       <section id="demo" className="border-t" style={{ borderColor: "#222", background: "#000", color: "#fff" }}>
