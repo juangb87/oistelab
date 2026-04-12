@@ -4,8 +4,9 @@ import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { FiActivity, FiBarChart2, FiCpu, FiDollarSign, FiGrid, FiHeadphones, FiLayers, FiMessageSquare, FiMic, FiSend, FiSettings, FiShoppingBag, FiTool, FiUserCheck } from "react-icons/fi";
 
-const BOOKING_URL = "https://wa.me/573106460010?text=Hola%20Pacho%2C%20quiero%20informaci%C3%B3n%20sobre%20automatizaci%C3%B3n%20de%20procesos%20y%20canales%20para%20mi%20negocio";
+const BOOKING_URL = "https://wa.me/573106460010?text=Hola%20Hontley%2C%20quiero%20informaci%C3%B3n%20sobre%20automatizaci%C3%B3n%20de%20procesos%20y%20canales%20para%20mi%20negocio";
 const CONTACT_LABEL = "WhatsApp: +57 310 6460010";
+const CONTACT_NAME = "Pacho";
 
 const PORTFOLIO = [
   { name: "Arca Build", logo: "/logo-arca.jpg", url: "https://arcabuild.co", industry: "Construcción" },
@@ -35,9 +36,24 @@ const IMPACT_METRICS = [
   { value: "+flujo", label: "entre áreas y tareas" },
 ];
 
+const AUTOMATIONS = [
+  {
+    title: "WhatsApp y canales de entrada",
+    desc: "Respuestas automáticas, captura de datos y primer filtro del cliente sin dejar chats botados.",
+  },
+  {
+    title: "Agenda y reservas",
+    desc: "Calificación, confirmaciones y paso al siguiente punto del proceso sin depender de seguimiento manual.",
+  },
+  {
+    title: "Seguimiento comercial",
+    desc: "Recordatorios, recontacto y continuidad para que los leads no se enfríen.",
+  },
+];
+
 const PLANS = [
-  { name: "Base", price: "Desde COP 1.800.000", icon: FiGrid },
-  { name: "Pro", price: "Desde COP 3.500.000", icon: FiShoppingBag },
+  { name: "Arranque", price: "Desde COP 1.800.000", icon: FiGrid },
+  { name: "Operación", price: "Desde COP 3.500.000", icon: FiShoppingBag },
   { name: "Soporte mensual", price: "Desde COP 350.000/mes", icon: FiDollarSign },
 ];
 
@@ -161,7 +177,7 @@ export default function Home() {
   const whatsappHref = useMemo(() => {
     const business = demoBusiness.trim() || "mi negocio";
     const label = DEMOS[demoType].label.toLowerCase();
-    return `https://wa.me/573106460010?text=${encodeURIComponent(`Hola Pacho, acabo de probar el demo de ${label} para ${business} y quiero cotizar una automatización para mi negocio.`)}`;
+    return `https://wa.me/573106460010?text=${encodeURIComponent(`Hola Hontley, acabo de probar el demo de ${label} para ${business} y quiero cotizar una automatización para mi negocio.`)}`;
   }, [demoBusiness, demoType]);
 
   const submitQuestion = (question: string) => {
@@ -181,9 +197,9 @@ export default function Home() {
         >
           <div className="text-xl font-medium">Hontley</div>
           <div className="hidden md:flex items-center gap-10 text-sm" style={{ color: "var(--hontley-muted)" }}>
-            <a href="#demo">Demo</a>
-            <a href="#benefits">Servicios</a>
             <a href="#cases">Casos</a>
+            <a href="#benefits">Cómo funciona</a>
+            <a href="#demo">Demo</a>
             <a href="#pricing">Precios</a>
           </div>
           <a
@@ -191,7 +207,7 @@ export default function Home() {
             className="px-5 py-3 rounded-full text-sm font-semibold"
             style={{ background: "#111", color: "#fff" }}
           >
-            Hablar con Pacho
+            Hablar con Hontley
           </a>
         </div>
       </nav>
@@ -208,14 +224,14 @@ export default function Home() {
               trabajar en vivo por ti.
             </h1>
             <p className="text-lg sm:text-xl max-w-2xl mb-8 font-semibold" style={{ color: "var(--hontley-muted)" }}>
-              Automatiza procesos, coordina tareas y ayuda a que ventas, soporte, operaciones y equipos técnicos trabajen con más velocidad, menos fricción y mejor seguimiento.
+              Automatiza procesos, coordina tareas y da seguimiento sin que tu operación dependa de estar persiguiendo chats, pendientes o handoffs manuales.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <a href="#demo" className="px-6 py-3.5 rounded-full text-sm font-semibold" style={{ background: "#111", color: "#fff" }}>
-                Probar demo
+                Ver demo
               </a>
               <a href={BOOKING_URL} className="px-6 py-3.5 rounded-full text-sm font-semibold border" style={{ borderColor: "var(--hontley-border)", color: "#111" }}>
-                Ver si aplica a mi negocio
+                Cotizar mi caso
               </a>
             </div>
             <div className="flex flex-wrap gap-3 text-sm mb-8">
@@ -328,49 +344,41 @@ export default function Home() {
 
       <section id="benefits">
         <SectionRow
-          index="02"
-          title="Atención inmediata"
-          description="Responde preguntas, pedidos, reservas o solicitudes sin dejar la operación colgada en WhatsApp o correo."
+          index="03"
+          title="Resuelve lo repetitivo"
+          description="Contesta preguntas frecuentes, pedidos, reservas o solicitudes sin dejar chats botados."
           right={<FiMessageSquare size={64} />}
         />
         <SectionRow
-          index="03"
-          title="Organiza el siguiente paso"
-          description="Filtra cada conversación, toma datos útiles y mueve el caso a agenda, venta, soporte o seguimiento."
+          index="04"
+          title="Mueve cada lead"
+          description="Filtra cada conversación, toma datos útiles y la manda al siguiente paso correcto."
           right={<FiUserCheck size={64} />}
         />
         <SectionRow
-          index="04"
-          title="Menos carga operativa"
-          description="Le quita trabajo repetitivo al equipo y deja más tiempo para vender, atender y cerrar mejor."
+          index="05"
+          title="Se monta sobre tu operación"
+          description="Se ajusta a cómo vendes, agendas o atiendes, sin meter otro proceso estorbando."
           right={<FiSettings size={64} />}
         />
       </section>
 
       <section className="border-t" style={{ borderColor: "var(--hontley-border)" }}>
         <div className="max-w-6xl mx-auto px-6 py-14">
-          <div className="flex items-end justify-between gap-4 flex-wrap mb-8">
-            <div>
-              <div className="text-sm mb-3" style={{ color: "var(--hontley-muted)" }}>05</div>
-              <h2 className="text-4xl sm:text-5xl tracking-tight font-black">Áreas donde sí genera valor</h2>
-              <p className="mt-3 max-w-3xl" style={{ color: "var(--hontley-muted)" }}>
-                No es solo para ventas. Un agente bien diseñado puede tomar tareas que frenan el día a día y devolverle tiempo valioso a toda la organización.
-              </p>
-            </div>
+          <div className="mb-8">
+            <div className="text-sm mb-3" style={{ color: "var(--hontley-muted)" }}>06</div>
+            <h2 className="text-4xl sm:text-5xl tracking-tight font-black">Qué automatizamos</h2>
+            <p className="mt-3 max-w-2xl" style={{ color: "var(--hontley-muted)" }}>
+              Empezamos por lo que más tiempo te quita o más dinero te deja sobre la mesa.
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-            {AREAS.map((area) => {
-              const Icon = area.icon;
-              return (
-                <div key={area.title} className="rounded-2xl p-5 border" style={{ background: "rgba(255,255,255,0.55)", borderColor: "var(--hontley-border)" }}>
-                  <div className="w-11 h-11 rounded-2xl flex items-center justify-center border mb-4" style={{ borderColor: "var(--hontley-border)" }}>
-                    <Icon size={18} />
-                  </div>
-                  <div className="text-xl font-black mb-2">{area.title}</div>
-                  <p style={{ color: "var(--hontley-muted)" }}>{area.desc}</p>
-                </div>
-              );
-            })}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {AUTOMATIONS.map((item) => (
+              <div key={item.title} className="rounded-2xl p-5 border" style={{ background: "rgba(255,255,255,0.55)", borderColor: "var(--hontley-border)" }}>
+                <h3 className="text-xl font-black mb-3">{item.title}</h3>
+                <p style={{ color: "var(--hontley-muted)" }}>{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -426,10 +434,10 @@ export default function Home() {
       <section id="demo" className="border-t" style={{ borderColor: "#222", background: "#000", color: "#fff" }}>
         <div className="max-w-6xl mx-auto px-6 py-14 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
           <div>
-            <div className="text-sm mb-5" style={{ color: "#aaa" }}>05</div>
-            <h2 className="text-4xl sm:text-5xl tracking-tight mb-4 font-black">Demo en formato chat</h2>
+            <div className="text-sm mb-5" style={{ color: "#aaa" }}>08</div>
+            <h2 className="text-4xl sm:text-5xl tracking-tight mb-4 font-black">Pruébalo en un caso real</h2>
             <p className="text-lg mb-8" style={{ color: "#bdbdbd" }}>
-              Pruébalo como si fueras un cliente real. Elige un tipo de negocio y haz preguntas libres.
+              Elige un tipo de negocio y haz preguntas como las que haría un cliente.
             </p>
 
             <div className="space-y-3 mb-5">
@@ -471,8 +479,8 @@ export default function Home() {
             <div className="rounded-md border p-5 sm:p-6 font-mono" style={{ background: "#000", borderColor: "#fff", boxShadow: "0 0 0 1px #fff inset" }}>
               <div className="flex items-center justify-between gap-4 flex-wrap mb-5">
                 <div>
-                  <h3 className="text-xl font-black">{demoBusiness.trim() || demoConfig.label} Assistant</h3>
-                  <p className="text-sm" style={{ color: "#aaa" }}>_ Haz clic o escribe una pregunta</p>
+                  <h3 className="text-xl font-black">{demoBusiness.trim() || demoConfig.label} · Demo</h3>
+                  <p className="text-sm" style={{ color: "#aaa" }}>Haz clic o escribe una pregunta</p>
                 </div>
                 <div className="text-xs" style={{ color: "#aaa" }}>● Demo en vivo</div>
               </div>
@@ -542,38 +550,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="cases" className="border-t" style={{ borderColor: "var(--hontley-border)" }}>
-        <div className="max-w-6xl mx-auto px-6 py-14">
-          <div className="flex items-center justify-between gap-4 flex-wrap mb-8">
-            <div>
-              <div className="text-sm mb-3" style={{ color: "var(--hontley-muted)" }}>06</div>
-              <h2 className="text-4xl tracking-tight font-black">Casos reales</h2>
-            </div>
-            <a href={BOOKING_URL} className="text-sm font-medium hover:underline">Ver si aplica a mi negocio</a>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {PORTFOLIO.map((p) => (
-              <a key={p.name} href={p.url} target="_blank" rel="noopener noreferrer" className="rounded-2xl p-4 border transition" style={{ background: "rgba(255,255,255,0.55)", borderColor: "var(--hontley-border)" }}>
-                <div className="flex items-center gap-3">
-                  <Image src={p.logo} alt={p.name} width={42} height={42} className="rounded-xl object-cover" />
-                  <div>
-                    <div className="font-medium">{p.name}</div>
-                    <div className="text-xs" style={{ color: "var(--hontley-muted)" }}>{p.industry}</div>
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section id="pricing" className="border-t" style={{ borderColor: "var(--hontley-border)" }}>
         <div className="max-w-6xl mx-auto px-6 py-14">
           <div className="flex items-end justify-between gap-4 flex-wrap mb-8">
             <div>
-              <div className="text-sm mb-3" style={{ color: "var(--hontley-muted)" }}>07</div>
+              <div className="text-sm mb-3" style={{ color: "var(--hontley-muted)" }}>09</div>
               <h2 className="text-4xl tracking-tight font-black">Precios</h2>
-              <p className="mt-3" style={{ color: "var(--hontley-muted)" }}>Implementación en COP. Infra y consumo aparte.</p>
+              <p className="mt-3" style={{ color: "var(--hontley-muted)" }}>Implementación en COP según alcance. Infra, integraciones y consumo aparte.</p>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -597,13 +580,19 @@ export default function Home() {
 
       <section className="border-t" style={{ borderColor: "var(--hontley-border)" }}>
         <div className="max-w-6xl mx-auto px-6 py-16 text-center">
-          <h2 className="text-4xl sm:text-5xl tracking-tight mb-4 font-black">¿Quieres uno así para tu negocio?</h2>
-          <p className="text-lg max-w-2xl mx-auto mb-8" style={{ color: "var(--hontley-muted)" }}>
-            Escríbele a Pacho y te mostramos qué se puede automatizar y cuánto costaría montarlo.
-          </p>
-          <a href={whatsappHref} className="inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold" style={{ background: "#111", color: "#fff" }}>
-            Hablar por WhatsApp
-          </a>
+          <div className="max-w-3xl mx-auto rounded-[28px] border px-6 py-10 sm:px-10" style={{ background: "var(--hontley-panel-strong)", borderColor: "var(--hontley-border)" }}>
+            <div className="text-sm mb-3" style={{ color: "var(--hontley-muted)" }}>10</div>
+            <h2 className="text-4xl sm:text-5xl tracking-tight mb-4 font-black">¿Te sirve para tu negocio?</h2>
+            <p className="text-lg max-w-2xl mx-auto mb-4" style={{ color: "var(--hontley-muted)" }}>
+              Escríbenos y te decimos qué conviene automatizar primero y cuánto tomaría montarlo.
+            </p>
+            <p className="text-sm max-w-2xl mx-auto mb-8" style={{ color: "var(--hontley-muted)" }}>
+              La idea no es automatizar por automatizar. Es quitar fricción, ahorrar tiempo y mover más oportunidades.
+            </p>
+            <a href={whatsappHref} className="inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold" style={{ background: "#111", color: "#fff" }}>
+              Cotizar por WhatsApp
+            </a>
+          </div>
         </div>
       </section>
 
@@ -730,7 +719,7 @@ export default function Home() {
       <footer className="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between text-sm flex-wrap gap-4" style={{ color: "var(--hontley-muted)" }}>
         <span className="font-medium" style={{ color: "var(--hontley-black)" }}>Hontley</span>
         <span>© {new Date().getFullYear()} Hontley. Todos los derechos reservados.</span>
-        <a href={BOOKING_URL} className="hover:underline">{CONTACT_LABEL}</a>
+        <a href={BOOKING_URL} className="hover:underline">{CONTACT_LABEL} · {CONTACT_NAME}</a>
       </footer>
     </main>
   );
