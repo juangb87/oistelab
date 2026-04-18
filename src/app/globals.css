@@ -5,27 +5,27 @@
 :root {
   --background: #f7f4ee;
   --foreground: #111111;
-  --hontley-black: #111111;
-  --hontley-accent: #111111;
-  --hontley-accent-light: #2b2b2b;
-  --hontley-gray: #f1ede6;
-  --hontley-border: rgba(17, 17, 17, 0.1);
-  --hontley-muted: rgba(17, 17, 17, 0.62);
-  --hontley-panel: rgba(255, 255, 255, 0.76);
-  --hontley-panel-strong: rgba(255, 255, 255, 0.92);
+  --oistelab-black: #111111;
+  --oistelab-accent: #111111;
+  --oistelab-accent-light: #2b2b2b;
+  --oistelab-gray: #f1ede6;
+  --oistelab-border: rgba(17, 17, 17, 0.1);
+  --oistelab-muted: rgba(17, 17, 17, 0.62);
+  --oistelab-panel: rgba(255, 255, 255, 0.76);
+  --oistelab-panel-strong: rgba(255, 255, 255, 0.92);
 }
 
 .dark {
   --background: #f7f4ee;
   --foreground: #111111;
-  --hontley-black: #111111;
-  --hontley-accent: #111111;
-  --hontley-accent-light: #2b2b2b;
-  --hontley-gray: #f1ede6;
-  --hontley-border: rgba(17, 17, 17, 0.1);
-  --hontley-muted: rgba(17, 17, 17, 0.62);
-  --hontley-panel: rgba(255, 255, 255, 0.76);
-  --hontley-panel-strong: rgba(255, 255, 255, 0.92);
+  --oistelab-black: #111111;
+  --oistelab-accent: #111111;
+  --oistelab-accent-light: #2b2b2b;
+  --oistelab-gray: #f1ede6;
+  --oistelab-border: rgba(17, 17, 17, 0.1);
+  --oistelab-muted: rgba(17, 17, 17, 0.62);
+  --oistelab-panel: rgba(255, 255, 255, 0.76);
+  --oistelab-panel-strong: rgba(255, 255, 255, 0.92);
 }
 
 html {

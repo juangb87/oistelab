@@ -9,15 +9,15 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Hontley Colombia | Automatización de procesos y canales",
+  title: "Oistelab Colombia | Automatización de procesos y canales",
   description:
     "Ayudamos a negocios en Colombia a automatizar procesos, atención y canales de comunicación para operar mejor y crecer más rápido.",
   openGraph: {
-    title: "Hontley Colombia | Automatización de procesos y canales",
+    title: "Oistelab Colombia | Automatización de procesos y canales",
     description:
       "Ayudamos a negocios en Colombia a automatizar procesos, atención y canales de comunicación para operar mejor y crecer más rápido.",
-    url: "https://hontley.com",
-    siteName: "Hontley",
+    url: "https://oistelab.com",
+    siteName: "Oistelab",
     type: "website",
   },
 };

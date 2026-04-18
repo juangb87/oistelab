@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { FiActivity, FiBarChart2, FiCpu, FiDollarSign, FiGrid, FiHeadphones, FiLayers, FiMessageSquare, FiMic, FiSend, FiSettings, FiShoppingBag, FiTool, FiUserCheck } from "react-icons/fi";
 
-const BOOKING_URL = "https://wa.me/573106460010?text=Hola%20Hontley%2C%20quiero%20informaci%C3%B3n%20sobre%20automatizaci%C3%B3n%20de%20procesos%20y%20canales%20para%20mi%20negocio";
+const BOOKING_URL = "https://wa.me/573106460010?text=Hola%20Oistelab%2C%20quiero%20informaci%C3%B3n%20sobre%20automatizaci%C3%B3n%20de%20procesos%20y%20canales%20para%20mi%20negocio";
 const CONTACT_LABEL = "WhatsApp: +57 310 6460010";
 const CONTACT_NAME = "Pacho";
 
@@ -134,12 +134,12 @@ function retrieveAnswer(question: string, config: DemoConfig, name: string, busi
 
 function SectionRow({ index, title, description, right }: { index: string; title: string; description: string; right: React.ReactNode }) {
   return (
-    <section className="border-t" style={{ borderColor: "var(--hontley-border)" }}>
+    <section className="border-t" style={{ borderColor: "var(--oistelab-border)" }}>
       <div className="max-w-6xl mx-auto px-6 py-14 grid grid-cols-1 lg:grid-cols-[80px_1fr_240px] gap-8 items-center">
-        <div className="text-sm" style={{ color: "var(--hontley-muted)" }}>{index}</div>
+        <div className="text-sm" style={{ color: "var(--oistelab-muted)" }}>{index}</div>
         <div>
           <h2 className="text-4xl sm:text-5xl tracking-tight mb-4">{title}</h2>
-          <p className="max-w-2xl text-lg" style={{ color: "var(--hontley-muted)" }}>{description}</p>
+          <p className="max-w-2xl text-lg" style={{ color: "var(--oistelab-muted)" }}>{description}</p>
         </div>
         <div className="flex justify-start lg:justify-end">{right}</div>
       </div>
@@ -177,7 +177,7 @@ export default function Home() {
   const whatsappHref = useMemo(() => {
     const business = demoBusiness.trim() || "mi negocio";
     const label = DEMOS[demoType].label.toLowerCase();
-    return `https://wa.me/573106460010?text=${encodeURIComponent(`Hola Hontley, acabo de probar el demo de ${label} para ${business} y quiero cotizar una automatización para mi negocio.`)}`;
+    return `https://wa.me/573106460010?text=${encodeURIComponent(`Hola Oistelab, acabo de probar el demo de ${label} para ${business} y quiero cotizar una automatización para mi negocio.`)}`;
   }, [demoBusiness, demoType]);
 
   const submitQuestion = (question: string) => {
@@ -193,10 +193,10 @@ export default function Home() {
       <nav className="max-w-6xl mx-auto px-6 pt-6 pb-10">
         <div
           className="rounded-full px-6 py-4 flex items-center justify-between gap-6 border shadow-sm"
-          style={{ background: "var(--hontley-panel-strong)", borderColor: "var(--hontley-border)", boxShadow: "0 10px 30px rgba(0,0,0,0.04)" }}
+          style={{ background: "var(--oistelab-panel-strong)", borderColor: "var(--oistelab-border)", boxShadow: "0 10px 30px rgba(0,0,0,0.04)" }}
         >
-          <div className="text-xl font-medium">Hontley</div>
-          <div className="hidden md:flex items-center gap-10 text-sm" style={{ color: "var(--hontley-muted)" }}>
+          <div className="text-xl font-medium">Oistelab</div>
+          <div className="hidden md:flex items-center gap-10 text-sm" style={{ color: "var(--oistelab-muted)" }}>
             <a href="#cases">Casos</a>
             <a href="#benefits">Cómo funciona</a>
             <a href="#demo">Demo</a>
@@ -207,7 +207,7 @@ export default function Home() {
             className="px-5 py-3 rounded-full text-sm font-semibold"
             style={{ background: "#111", color: "#fff" }}
           >
-            Hablar con Hontley
+            Hablar con Oistelab
           </a>
         </div>
       </nav>
@@ -215,7 +215,7 @@ export default function Home() {
       <section className="max-w-6xl mx-auto px-6 pb-8">
         <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 items-center">
           <div>
-            <div className="text-sm mb-5" style={{ color: "var(--hontley-muted)" }}>01</div>
+            <div className="text-sm mb-5" style={{ color: "var(--oistelab-muted)" }}>01</div>
             <h1 className="text-6xl sm:text-7xl lg:text-[86px] tracking-tight leading-[0.95] mb-5 font-black">
               Tu oficina virtual 3D
               <br />
@@ -223,14 +223,14 @@ export default function Home() {
               <br />
               trabajar en vivo por ti.
             </h1>
-            <p className="text-lg sm:text-xl max-w-2xl mb-8 font-semibold" style={{ color: "var(--hontley-muted)" }}>
+            <p className="text-lg sm:text-xl max-w-2xl mb-8 font-semibold" style={{ color: "var(--oistelab-muted)" }}>
               Automatiza procesos, coordina tareas y da seguimiento sin que tu operación dependa de estar persiguiendo chats, pendientes o handoffs manuales.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <a href="#demo" className="px-6 py-3.5 rounded-full text-sm font-semibold" style={{ background: "#111", color: "#fff" }}>
                 Ver demo
               </a>
-              <a href={BOOKING_URL} className="px-6 py-3.5 rounded-full text-sm font-semibold border" style={{ borderColor: "var(--hontley-border)", color: "#111" }}>
+              <a href={BOOKING_URL} className="px-6 py-3.5 rounded-full text-sm font-semibold border" style={{ borderColor: "var(--oistelab-border)", color: "#111" }}>
                 Cotizar mi caso
               </a>
             </div>
@@ -240,16 +240,16 @@ export default function Home() {
                 "Coordina equipos",
                 "Da seguimiento",
               ].map((item) => (
-                <span key={item} className="px-4 py-2 rounded-full border font-semibold" style={{ borderColor: "var(--hontley-border)", background: "rgba(255,255,255,0.65)" }}>
+                <span key={item} className="px-4 py-2 rounded-full border font-semibold" style={{ borderColor: "var(--oistelab-border)", background: "rgba(255,255,255,0.65)" }}>
                   {item}
                 </span>
               ))}
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {IMPACT_METRICS.map((metric) => (
-                <div key={metric.label} className="rounded-2xl border px-4 py-4" style={{ borderColor: "var(--hontley-border)", background: "rgba(255,255,255,0.62)" }}>
+                <div key={metric.label} className="rounded-2xl border px-4 py-4" style={{ borderColor: "var(--oistelab-border)", background: "rgba(255,255,255,0.62)" }}>
                   <div className="text-2xl sm:text-3xl font-black">{metric.value}</div>
-                  <div className="text-sm mt-1" style={{ color: "var(--hontley-muted)" }}>{metric.label}</div>
+                  <div className="text-sm mt-1" style={{ color: "var(--oistelab-muted)" }}>{metric.label}</div>
                 </div>
               ))}
             </div>
@@ -363,32 +363,32 @@ export default function Home() {
         />
       </section>
 
-      <section className="border-t" style={{ borderColor: "var(--hontley-border)" }}>
+      <section className="border-t" style={{ borderColor: "var(--oistelab-border)" }}>
         <div className="max-w-6xl mx-auto px-6 py-14">
           <div className="mb-8">
-            <div className="text-sm mb-3" style={{ color: "var(--hontley-muted)" }}>06</div>
+            <div className="text-sm mb-3" style={{ color: "var(--oistelab-muted)" }}>06</div>
             <h2 className="text-4xl sm:text-5xl tracking-tight font-black">Qué automatizamos</h2>
-            <p className="mt-3 max-w-2xl" style={{ color: "var(--hontley-muted)" }}>
+            <p className="mt-3 max-w-2xl" style={{ color: "var(--oistelab-muted)" }}>
               Empezamos por lo que más tiempo te quita o más dinero te deja sobre la mesa.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {AUTOMATIONS.map((item) => (
-              <div key={item.title} className="rounded-2xl p-5 border" style={{ background: "rgba(255,255,255,0.55)", borderColor: "var(--hontley-border)" }}>
+              <div key={item.title} className="rounded-2xl p-5 border" style={{ background: "rgba(255,255,255,0.55)", borderColor: "var(--oistelab-border)" }}>
                 <h3 className="text-xl font-black mb-3">{item.title}</h3>
-                <p style={{ color: "var(--hontley-muted)" }}>{item.desc}</p>
+                <p style={{ color: "var(--oistelab-muted)" }}>{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-t" style={{ borderColor: "var(--hontley-border)" }}>
+      <section className="border-t" style={{ borderColor: "var(--oistelab-border)" }}>
         <div className="max-w-6xl mx-auto px-6 py-14 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
           <div>
-            <div className="text-sm mb-3" style={{ color: "var(--hontley-muted)" }}>06</div>
+            <div className="text-sm mb-3" style={{ color: "var(--oistelab-muted)" }}>06</div>
             <h2 className="text-4xl sm:text-5xl tracking-tight font-black mb-4">Cómo trabaja el sistema</h2>
-            <p className="text-lg mb-6" style={{ color: "var(--hontley-muted)" }}>
+            <p className="text-lg mb-6" style={{ color: "var(--oistelab-muted)" }}>
               Recibe solicitudes, entiende contexto, coordina tareas, ejecuta el siguiente paso y deja trazabilidad para que el equipo no trabaje a ciegas.
             </p>
             <div className="space-y-4">
@@ -399,13 +399,13 @@ export default function Home() {
               ].map((step) => {
                 const Icon = step.icon;
                 return (
-                  <div key={step.title} className="flex gap-4 rounded-2xl border p-4" style={{ borderColor: "var(--hontley-border)", background: "rgba(255,255,255,0.55)" }}>
-                    <div className="w-11 h-11 rounded-2xl border flex items-center justify-center shrink-0" style={{ borderColor: "var(--hontley-border)" }}>
+                  <div key={step.title} className="flex gap-4 rounded-2xl border p-4" style={{ borderColor: "var(--oistelab-border)", background: "rgba(255,255,255,0.55)" }}>
+                    <div className="w-11 h-11 rounded-2xl border flex items-center justify-center shrink-0" style={{ borderColor: "var(--oistelab-border)" }}>
                       <Icon size={18} />
                     </div>
                     <div>
                       <div className="font-black mb-1">{step.title}</div>
-                      <div style={{ color: "var(--hontley-muted)" }}>{step.desc}</div>
+                      <div style={{ color: "var(--oistelab-muted)" }}>{step.desc}</div>
                     </div>
                   </div>
                 );
@@ -413,18 +413,18 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="rounded-[28px] border p-5 sm:p-6" style={{ background: "rgba(255,255,255,0.55)", borderColor: "var(--hontley-border)" }}>
-            <div className="text-sm mb-3" style={{ color: "var(--hontley-muted)" }}>Impacto esperado</div>
+          <div className="rounded-[28px] border p-5 sm:p-6" style={{ background: "rgba(255,255,255,0.55)", borderColor: "var(--oistelab-border)" }}>
+            <div className="text-sm mb-3" style={{ color: "var(--oistelab-muted)" }}>Impacto esperado</div>
             <h3 className="text-3xl tracking-tight font-black mb-6">Menos fricción. Más flujo. Mejor ROI.</h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-5">
               {IMPACT_METRICS.map((metric) => (
-                <div key={metric.label} className="rounded-2xl border px-4 py-4" style={{ borderColor: "var(--hontley-border)", background: "#fff" }}>
+                <div key={metric.label} className="rounded-2xl border px-4 py-4" style={{ borderColor: "var(--oistelab-border)", background: "#fff" }}>
                   <div className="text-2xl font-black">{metric.value}</div>
-                  <div className="text-sm mt-1" style={{ color: "var(--hontley-muted)" }}>{metric.label}</div>
+                  <div className="text-sm mt-1" style={{ color: "var(--oistelab-muted)" }}>{metric.label}</div>
                 </div>
               ))}
             </div>
-            <p style={{ color: "var(--hontley-muted)" }}>
+            <p style={{ color: "var(--oistelab-muted)" }}>
               La apuesta no es meter AI por moda. Es invertir en una operación que responda mejor, reduzca carga manual y ayude a escalar sin crecer el caos.
             </p>
           </div>
@@ -550,22 +550,22 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="pricing" className="border-t" style={{ borderColor: "var(--hontley-border)" }}>
+      <section id="pricing" className="border-t" style={{ borderColor: "var(--oistelab-border)" }}>
         <div className="max-w-6xl mx-auto px-6 py-14">
           <div className="flex items-end justify-between gap-4 flex-wrap mb-8">
             <div>
-              <div className="text-sm mb-3" style={{ color: "var(--hontley-muted)" }}>09</div>
+              <div className="text-sm mb-3" style={{ color: "var(--oistelab-muted)" }}>09</div>
               <h2 className="text-4xl tracking-tight font-black">Precios</h2>
-              <p className="mt-3" style={{ color: "var(--hontley-muted)" }}>Implementación en COP según alcance. Infra, integraciones y consumo aparte.</p>
+              <p className="mt-3" style={{ color: "var(--oistelab-muted)" }}>Implementación en COP según alcance. Infra, integraciones y consumo aparte.</p>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {PLANS.map((p) => {
               const Icon = p.icon;
               return (
-                <div key={p.name} className="rounded-2xl p-5 border" style={{ background: "rgba(255,255,255,0.55)", borderColor: "var(--hontley-border)" }}>
+                <div key={p.name} className="rounded-2xl p-5 border" style={{ background: "rgba(255,255,255,0.55)", borderColor: "var(--oistelab-border)" }}>
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-2xl flex items-center justify-center border" style={{ borderColor: "var(--hontley-border)" }}>
+                    <div className="w-10 h-10 rounded-2xl flex items-center justify-center border" style={{ borderColor: "var(--oistelab-border)" }}>
                       <Icon size={18} />
                     </div>
                     <div className="text-lg font-medium">{p.name}</div>
@@ -578,15 +578,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-t" style={{ borderColor: "var(--hontley-border)" }}>
+      <section className="border-t" style={{ borderColor: "var(--oistelab-border)" }}>
         <div className="max-w-6xl mx-auto px-6 py-16 text-center">
-          <div className="max-w-3xl mx-auto rounded-[28px] border px-6 py-10 sm:px-10" style={{ background: "var(--hontley-panel-strong)", borderColor: "var(--hontley-border)" }}>
-            <div className="text-sm mb-3" style={{ color: "var(--hontley-muted)" }}>10</div>
+          <div className="max-w-3xl mx-auto rounded-[28px] border px-6 py-10 sm:px-10" style={{ background: "var(--oistelab-panel-strong)", borderColor: "var(--oistelab-border)" }}>
+            <div className="text-sm mb-3" style={{ color: "var(--oistelab-muted)" }}>10</div>
             <h2 className="text-4xl sm:text-5xl tracking-tight mb-4 font-black">¿Te sirve para tu negocio?</h2>
-            <p className="text-lg max-w-2xl mx-auto mb-4" style={{ color: "var(--hontley-muted)" }}>
+            <p className="text-lg max-w-2xl mx-auto mb-4" style={{ color: "var(--oistelab-muted)" }}>
               Escríbenos y te decimos qué conviene automatizar primero y cuánto tomaría montarlo.
             </p>
-            <p className="text-sm max-w-2xl mx-auto mb-8" style={{ color: "var(--hontley-muted)" }}>
+            <p className="text-sm max-w-2xl mx-auto mb-8" style={{ color: "var(--oistelab-muted)" }}>
               La idea no es automatizar por automatizar. Es quitar fricción, ahorrar tiempo y mover más oportunidades.
             </p>
             <a href={whatsappHref} className="inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold" style={{ background: "#111", color: "#fff" }}>
@@ -716,9 +716,9 @@ export default function Home() {
         }
       `}</style>
 
-      <footer className="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between text-sm flex-wrap gap-4" style={{ color: "var(--hontley-muted)" }}>
-        <span className="font-medium" style={{ color: "var(--hontley-black)" }}>Hontley</span>
-        <span>© {new Date().getFullYear()} Hontley. Todos los derechos reservados.</span>
+      <footer className="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between text-sm flex-wrap gap-4" style={{ color: "var(--oistelab-muted)" }}>
+        <span className="font-medium" style={{ color: "var(--oistelab-black)" }}>Oistelab</span>
+        <span>© {new Date().getFullYear()} Oistelab. Todos los derechos reservados.</span>
         <a href={BOOKING_URL} className="hover:underline">{CONTACT_LABEL} · {CONTACT_NAME}</a>
       </footer>
     </main>
